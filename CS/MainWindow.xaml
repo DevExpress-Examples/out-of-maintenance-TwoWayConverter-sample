@@ -1,0 +1,43 @@
+﻿<Window x:Class="TwoWayConverterSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:local="clr-namespace:TwoWayConverterSample"
+        Width="350" ResizeMode="NoResize" SizeToContent="Height"
+        FontSize="18" Title="TwoWayConverter"
+        DataContext="{dxmvvm:ViewModelSource Type=local:ViewModel}"
+        dx:ThemeManager.ThemeName="Office2019White">
+
+    <dxlc:LayoutControl VerticalAlignment="Top" Orientation="Vertical">
+        <dxlc:LayoutItem Label="Enter your user name:" LabelPosition="Top">
+            <dxe:TextEdit EditValue="{Binding UserName}">
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand Command="{Binding UserNameValidationCommand}"
+                                           EventArgsConverter="{local:ValidateEventArgsConverter}"
+                                           EventName="Validate" />
+                </dxmvvm:Interaction.Behaviors>
+            </dxe:TextEdit>
+        </dxlc:LayoutItem>
+        <dxlc:LayoutItem Label="Enter your age:" LabelPosition="Top">
+            <dxe:SpinEdit EditValue="{Binding Age}" IsFloatValue="False">
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand Command="{Binding AgeValidationCommand}"
+                                           EventArgsConverter="{local:ValidateEventArgsConverter}"
+                                           EventName="Validate" />
+                </dxmvvm:Interaction.Behaviors>
+            </dxe:SpinEdit>
+        </dxlc:LayoutItem>
+        <dxlc:LayoutItem Label="Enter your birthday:" LabelPosition="Top">
+            <dxe:DateEdit EditValue="{Binding BirthDay}">
+                <dxmvvm:Interaction.Behaviors>
+                    <dxmvvm:EventToCommand Command="{Binding BirthDayValidationCommand}"
+                                           EventArgsConverter="{local:ValidateEventArgsConverter}"
+                                           EventName="Validate" />
+                </dxmvvm:Interaction.Behaviors>
+            </dxe:DateEdit>
+        </dxlc:LayoutItem>
+    </dxlc:LayoutControl>
+</Window>
