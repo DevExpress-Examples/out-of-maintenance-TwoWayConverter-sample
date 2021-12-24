@@ -8,8 +8,11 @@
         xmlns:local="clr-namespace:TwoWayConverterSample"
         Width="350" ResizeMode="NoResize" SizeToContent="Height"
         FontSize="18" Title="TwoWayConverter"
-        DataContext="{dxmvvm:ViewModelSource Type=local:ViewModel}"
         dx:ThemeManager.ThemeName="Office2019White">
+
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
 
     <dxlc:LayoutControl VerticalAlignment="Top" Orientation="Vertical">
         <dxlc:LayoutItem Label="Enter your user name:" LabelPosition="Top">

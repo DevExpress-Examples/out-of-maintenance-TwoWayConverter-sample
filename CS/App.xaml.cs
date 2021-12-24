@@ -1,3 +1,5 @@
-﻿namespace TwoWayConverterSample {
-    public partial class App : System.Windows.Application { }
+﻿using System.Windows;
+
+namespace TwoWayConverterSample {
+    public partial class App : Application { }
 }

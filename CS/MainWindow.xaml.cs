@@ -1,5 +1,9 @@
-﻿namespace TwoWayConverterSample {
-    public partial class MainWindow : System.Windows.Window {
-        public MainWindow() => InitializeComponent();
+﻿using System.Windows;
+
+namespace TwoWayConverterSample {
+    public partial class MainWindow : Window {
+        public MainWindow() {
+            InitializeComponent();
+        }
     }
 }
